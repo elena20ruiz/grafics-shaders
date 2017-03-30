@@ -21,8 +21,12 @@ void main()
 {
     vec3 N = normalize(normalMatrix * normal);
     frontColor = vec4(N.z);
+ 
+   //amplitude*sin(2*PI*freq*time) == angulo
 
+   //El vertex es modifica en funcio de la normal
     vec3 v = vertex + normal*abs(amplitude*sin(2*PI*freq*time));
+
     gl_Position = modelViewProjectionMatrix * vec4(v,1.0);
 
 }

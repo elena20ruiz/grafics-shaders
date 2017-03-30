@@ -14,10 +14,12 @@ uniform sampler2D sampler3;
 
 void main()
 {
-    float x = int(mod(fract(time/slice),4));
-    if( x <= 1) fragColor = texture(sampler0,vtexCoord);
-    else if( x <= 2) fragColor = texture(sampler1,vtexCoord);
-    else if( x <= 3) fragColor = texture(sampler2,vtexCoord);
+    //Que frame toca
+    float x = int(mod(floor(time/slice),4));
+ 
+   if( x < 1) fragColor = texture(sampler0,vtexCoord);
+    else if( x <2) fragColor = texture(sampler1,vtexCoord);
+    else if( x < 3) fragColor = texture(sampler2,vtexCoord);
     else fragColor = texture(sampler3,vtexCoord);
 
     
