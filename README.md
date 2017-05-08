@@ -21,6 +21,7 @@
 - BasicTexture
 - Animate Texture
 - Tiling
+- Magnet
 - Animate Verts (1)
 - Animate Verts (2)
 

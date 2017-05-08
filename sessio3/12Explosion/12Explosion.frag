@@ -13,15 +13,20 @@ void main()
     //Decideix quin fame es mostra
     //Time de 0 fins 48 amb la velocitat de slice
 
-    int fact = int(mod(time/slice,48)); 
+    float fact = mod(time/slice,48);  
 
-    // x va de 0 a 7
+    //Calcul x
     float x = mod(fact,8);
-    // y va de
-    float y =  5 - floor(fact/8);
+    //Calcul y
+    float y =  fact/8;
+
+   //Offset
+   float s = 1.0/8.0;
+   float t = 1.0/6.0;
+   vec2 offset = vec2(x*s, t*y);
 
     //Calcul de la coordenada de la nostra textura 
-    vec2 tex = vec2(x/8 + vtexCoord.x/8, y/6 + vtexCoord.y/6);
+    vec2 tex = vec2(vtexCoord.x+s*x, vtexCoord.y+t*y);
     
     fragColor = texture(explosion,tex);
     
